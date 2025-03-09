@@ -76,7 +76,6 @@ const UserDetails = (props) => {
   };
 
   const usersCollection = props?.users;
-  console.log("DATA SA usersCollection", usersCollection);
 
   function getUserAuthenticated(usersCollection) {
     let item = [];
