@@ -297,8 +297,6 @@ function App(props) {
     </Routes>
   )}
 </div>
-
-        
         </div>
         {/*** NAAY 3 KA SECURITY VALIDATION GAMIT TOKEN SA SESSION STORAGE / LOCAL STORAGE  UG SESSION COOKIES */}
         {(cookiesData?.length ?? 0) > 0 ? (
