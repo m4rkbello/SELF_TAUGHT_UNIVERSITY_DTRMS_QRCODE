@@ -209,7 +209,6 @@ const UserDetails = (props) => {
         </div>
       </div>
       
-
           <FaUpload
             onClick={() => document.getElementById('uploadUserUImage').showModal()}
             style={{ backgroundColor: 'transparent', color: 'black', border: 'none', width: '35px', height: '35px' }}
@@ -220,7 +219,7 @@ const UserDetails = (props) => {
               <div className="grid grid-cols-2 gap-10">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-2xl">Firstname</span>
+                    <span className="label-text text-xl">Firstname</span>
                   </label>
                   {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
                     <input
@@ -228,7 +227,7 @@ const UserDetails = (props) => {
                       type="text"
                       placeholder="text"
                       name="user_firstname"
-                      className={`input input-bordered shadow-2xl text-2xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
+                      className={`input input-bordered shadow-2xl text-xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
                       defaultValue={user.user_firstname}
                       onChange={handleUpdateInputChange}
                       disabled={!isEditing} // Disable input when not editing
@@ -237,7 +236,7 @@ const UserDetails = (props) => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-2xl">Lastname</span>
+                    <span className="label-text text-xl">Lastname</span>
                   </label>
                   {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
                     <input
@@ -245,7 +244,7 @@ const UserDetails = (props) => {
                       type="text"
                       placeholder="text"
                       name="user_lastname"
-                      className={`input input-bordered shadow-2xl text-2xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
+                      className={`input input-bordered shadow-2xl text-xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
                       defaultValue={user.user_lastname}
                       onChange={handleUpdateInputChange}
                       disabled={!isEditing} // Disable input when not editing
@@ -254,7 +253,7 @@ const UserDetails = (props) => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-2xl">Email</span>
+                    <span className="label-text text-xl">Email</span>
                   </label>
                   {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
                     <input
@@ -262,7 +261,7 @@ const UserDetails = (props) => {
                       type="text"
                       placeholder="text"
                       name="user_email"
-                      className={`input input-bordered shadow-2xl text-2xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
+                      className={`input input-bordered shadow-2xl text-xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
                       defaultValue={user.user_email}
                       onChange={handleUpdateInputChange}
                       disabled={!isEditing} // Disable input when not editing
@@ -271,7 +270,7 @@ const UserDetails = (props) => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-2xl">Contact</span>
+                    <span className="label-text text-xl">Contact</span>
                   </label>
                   {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
                     <input
@@ -279,7 +278,7 @@ const UserDetails = (props) => {
                       type="text"
                       placeholder="email"
                       name="user_contact_no"
-                      className={`input input-bordered shadow-2xl text-2xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
+                      className={`input input-bordered shadow-2xl text-xl text-black ${isEditing ? '' : 'pointer-events-none'}`}
                       defaultValue={user.user_contact_no}
                       onChange={handleUpdateInputChange}
                       disabled={!isEditing} // Disable input when not editing
