@@ -126,7 +126,7 @@ const UserDetails = (props) => {
   }, []);
 
   return (
-    <div className='h-full max-h-full w-full max-w-full glass mx-auto p-4 shadow-slate-900/100 rounded-lg'>
+    <div className="h-full mx-auto max-h-full w-full max-w-full glass p-4 shadow-xl">
       <div className="flex justify-start">
         <div className="text-sm breadcrumbs mb-10 bg-transparent">
           <ul>
@@ -216,7 +216,7 @@ const UserDetails = (props) => {
           />
 
           <div className="flex flex-col items-center">
-            <div className="flex-1 pr-10 pl-10">
+            <div className="flex-1 px-10 mx-20">
               <div className="grid grid-cols-2 gap-10">
                 <div className="form-control">
                   <label className="label">
