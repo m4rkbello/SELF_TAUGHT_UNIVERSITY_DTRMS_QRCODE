@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { FaUserEdit, FaSave, FaLongArrowAltLeft } from "react-icons/fa";
-import { FcFolder, FcOpenedFolder, FcSupport, FcPlus, FcAcceptDatabase, FcKey, FcUnlock, FcSalesPerformance, FcSearch, FcPrevious, FcViewDetails, FcEmptyTrash, FcNext } from "react-icons/fc";
+import { FcFolder, FcOpenedFolder, FcSupport, FcPlus, FcAcceptDatabase, FcLeft, FcKey, FcFile, FcUnlock, FcSalesPerformance, FcSearch, FcPrevious, FcViewDetails, FcEmptyTrash, FcNext, FcPortraitMode } from "react-icons/fc";
 import { MdEditSquare } from "react-icons/md";
 import { TbPasswordUser } from "react-icons/tb";
 //redux-actions
@@ -126,10 +126,50 @@ const UserDetails = (props) => {
   }, []);
 
   return (
+    <div className='h-full max-h-full w-full max-w-full glass mx-auto p-4 shadow-slate-900/100 rounded-lg'>
+      <div className="flex justify-start">
+        <div className="text-sm breadcrumbs mb-10 bg-transparent">
+          <ul>
+            <li>
+              <FcLeft
+                style={{
+                  backgroundColor: "transparent",
+                  color: "black",
+                  height: "35px",
+                  width: "35px",
+                }}
+              />
+              <Link to="/" className='hover:text-white'>Home</Link>
+            </li>
+            <li>
+              <FcPortraitMode
+                style={{
+                  backgroundColor: "transparent",
+                  color: "black",
+                  height: "25px",
+                  width: "25px",
+                }}
+              />
+              <Link to="/employee/attendances" className='hover:text-white'>User Details</Link>
+            </li>
+            <li>
+              <span className="inline-flex gap-2 items-center">
+                <FcFile
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "black",
+                    height: "25px",
+                    width: "25px",
+                  }}
+                />
+                <Link to="" className='hover:text-white'>User Data</Link>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-    <div className="h-full max-h-full w-full max-w-full glass mx-auto p-0 shadow-slate-900/100 rounded-lg flex items-center justify-center">
       <div className="flex flex-wrap justify-center items-center">
-
         <ToastContainer />
         <dialog id="uploadUserUImage" className="modal">
           <div className="modal-box">
@@ -141,35 +181,10 @@ const UserDetails = (props) => {
           </div>
         </dialog>
 
-        <div className="flex flex-col bg-transparent mb-10 shadow-slate-900/100">
-          <div className="flex text-sm breadcrumbs">
-            <ul className="flex space-x-2">
-              <li>
-                <Link to="/" className='flex hover:text-white'>
-                  <FcPrevious style={{ height: "2rem", width: "2rem" }} />
-                  <span className="ml-2">Home</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin/users" className='flex hover:text-white'>
-                  <FcFolder style={{ height: "2rem", width: "2rem" }} />
-                  <span className="ml-2">Users</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="" className='flex hover:text-white'>
-                  <FcOpenedFolder style={{ height: "2rem", width: "2rem" }} />
-                  <span className="ml-2">Data</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div className='bg-transparent shadow-slate-900/100'>
           <div className="grid grid-cols-2 items-center mt-10 mb-5 rounded-t-lg rounded-b-lg rounded-l-lg rounded-r-lg">
             <div>
-              <span className="inline-grid grid-cols-2 gap-4 py-5">
+              <span className="inline-grid grid-cols-2 gap-4">
                 <div className="p-3 flex justify-start">
                   <span></span>
                 </div>
@@ -179,20 +194,21 @@ const UserDetails = (props) => {
         </div>
 
         <div className="hero-content flex flex-col items-center">
-          <div className="pb-0 pt-5 flex justify-center">
-            <div className="avatar">
-              <div className="avatar online">
-                <div className="ring-primary ring-offset-base-100 w-40 rounded-full">
-                  {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
-                    <img key={index}
-                      src={user.user_image}
-                      className='"input input-bordered shadow-2xl glass text-2xl text-black border-1 border-glass rounded-se-3xl shadow-slate-900/100 custom-placeholder-text-color'
-                    />
-                  ))}
-                </div>
-              </div>
+        <div className="pb-0 pt-5 flex justify-center">
+        <div className="avatar">
+          <div className="avatar online">
+            <div className="w-40 h-40 rounded-full border-4 border-violet-700 ring-primary ring-offset-base-100">
+              {isAuthenticatedUser && isAuthenticatedUser.map((user, index) => (
+                <img key={index}
+                  src={user.user_image}
+                  className="w-full h-full rounded-full object-cover"
+                />
+              ))}
             </div>
           </div>
+        </div>
+      </div>
+      
 
           <FaUpload
             onClick={() => document.getElementById('uploadUserUImage').showModal()}
@@ -270,7 +286,6 @@ const UserDetails = (props) => {
                     />
                   ))}
                 </div>
-                {/* Other input fields */}
               </div>
               <br />
               <button onClick={handleUpdateUser} className="btn glass mr-3">
@@ -297,8 +312,6 @@ const UserDetails = (props) => {
         </div>
       </div>
     </div>
-
-
   );
 };
 
