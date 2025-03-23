@@ -12,6 +12,8 @@ import { AiFillSetting } from "react-icons/ai";
 import { FaRunning } from "react-icons/fa";
 import { FcDoughnutChart, FcOpenedFolder, FcHome, FcTimeline, FcMenu, FcExpired, FcCurrencyExchange, FcButtingIn, FcStatistics, FcManager, FcElectricalThreshold, FcComboChart, FcList, FcSettings, FcConferenceCall, FcReuse, FcDepartment, FcMoneyTransfer, FcOvertime, FcDebt, FcPortraitMode, FcSalesPerformance } from "react-icons/fc";
 //LAYOUTS
+import { NavLink } from 'react-router-dom'; // Import NavLink
+
 const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmployee, accessTypeUser: propAccessTypeUser }) => {
   const [stateAccessTypeUser, setStateAccessTypeUser] = useState('');
   const [stateAccessTypeEmployee, setStateAccessTypeEmployee] = useState('');
@@ -49,7 +51,6 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
     setStateAccessTypeUser(cookiesAccessTypeUserLayer);
   }, []);
 
-
   return (
     <div className="drawer-side border-r-4 bg-black drop-shadow-lg">
       <div className="drawer lg:drawer-open">
@@ -81,7 +82,12 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                     </summary>
                     <ul>
                       <li>
-                        <Link to="/" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcComboChart
                             style={{
                               height: "2rem",
@@ -91,10 +97,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             ANALYTICS&MONITORING
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/employee/attendance" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/employee/attendance"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcStatistics
                             style={{
                               height: "2rem",
@@ -104,10 +115,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             ATTENDANCE LIST
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/employee/dashboard" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/employee/dashboard"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcButtingIn
                             style={{
                               height: "2rem",
@@ -117,10 +133,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             EMPLOYEES LIST
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/employee/archieve" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/employee/archieve"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcReuse
                             style={{
                               height: "2rem",
@@ -130,10 +151,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             EMPLOYEES ARCHIEVE
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
-                        <Link to="/admin/departments" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/admin/departments"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcDepartment
                             style={{
                               height: "2rem",
@@ -143,11 +169,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             DEPARTMENTS
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
 
                       <li>
-                        <Link to="/admin/payrolls" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/admin/payrolls"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcCurrencyExchange
                             style={{
                               height: "2rem",
@@ -157,11 +188,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             PAYROLLS
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
 
                       <li>
-                        <Link to="/admin/rates" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/admin/rates"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcSalesPerformance
                             style={{
                               height: "2.5rem",
@@ -171,11 +207,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             RATES
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
 
                       <li>
-                        <Link to="/admin/overtimes" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/admin/overtimes"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcOvertime
                             style={{
                               height: "2.5rem",
@@ -185,11 +226,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             OVERTIMES
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
-                      
+
                       <li>
-                        <Link to="/admin/deductions" className='text-2xl glass hover:bg-violet-800'>
+                        <NavLink
+                          to="/admin/deductions"
+                          className={({ isActive }) =>
+                            isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                          }
+                        >
                           <FcExpired
                             style={{
                               height: "2.5rem",
@@ -199,13 +245,18 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                           <span className='text-lg'>
                             DEDUCTIONS
                           </span>
-                        </Link>
+                        </NavLink>
                       </li>
                     </ul>
                   </details>
                 </li>
                 <li>
-                  <Link to="/dashboard" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcDoughnutChart
                       style={{
                         height: "2.5rem",
@@ -213,10 +264,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     DASHBOARD
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/employee/attendance" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/employee/attendance"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcElectricalThreshold
                       style={{
                         height: "2.5rem",
@@ -224,10 +280,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     ATTENDANCE
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/employee/dashboard" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/employee/dashboard"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcConferenceCall
                       style={{
                         height: "2.5rem",
@@ -235,11 +296,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     EMPLOYEES
-                  </Link>
+                  </NavLink>
                 </li>
 
                 <li>
-                  <Link to="/employee/archieve" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/employee/archieve"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcReuse
                       style={{
                         height: "2.5rem",
@@ -247,11 +313,16 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     EMPLOYEES ARCH.
-                  </Link>
+                  </NavLink>
                 </li>
 
                 <li>
-                  <Link to="/admin/departments" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/admin/departments"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcDepartment
                       style={{
                         height: "2.5rem",
@@ -259,15 +330,20 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     DEPARTMENTS
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}
 
-        {((stateAccessTypeEmployee === 2) || (stateAccessTypeUser === 1)) && (
-            <>
+            {((stateAccessTypeEmployee === 2) || (stateAccessTypeUser === 1)) && (
+              <>
                 <li>
-                  <Link to="/admin/payrolls" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/admin/payrolls"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcMoneyTransfer
                       style={{
                         height: "2.5rem",
@@ -275,10 +351,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     PAYROLLS
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/admin/rates" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/admin/rates"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcSalesPerformance
                       style={{
                         height: "2.5rem",
@@ -286,10 +367,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     RATES
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/admin/overtimes" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/admin/overtimes"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcOvertime
                       style={{
                         height: "2.5rem",
@@ -297,10 +383,15 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     OVERTIMES
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/admin/deductions" className='text-2xl glass hover:bg-violet-800'>
+                  <NavLink
+                    to="/admin/deductions"
+                    className={({ isActive }) =>
+                      isActive ? 'text-2xl glass bg-violet-800' : 'text-2xl glass hover:bg-violet-800'
+                    }
+                  >
                     <FcDebt
                       style={{
                         height: "2.5rem",
@@ -308,7 +399,7 @@ const SideBar = ({ isAuthenticatedUser, accessTypeEmployee: propAccessTypeEmploy
                       }}
                     />
                     DEDUCTIONS
-                  </Link>
+                  </NavLink>
                 </li>
               </>
             )}
