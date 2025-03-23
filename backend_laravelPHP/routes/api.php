@@ -111,7 +111,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/employee/search/', [EmployeeController::class, 'search']);
     Route::put('/employee/deactivated/{id}', [EmployeeController::class, 'deactivate']);
     Route::get('/employees', [EmployeeController::class, 'index']);
-    Route::post('/employee-registration', [EmployeeController::class, 'store']);
+    Route::post('/employee/add', [EmployeeController::class, 'store']);
     // UPLOAD PICTURE
     Route::get('/images', [ImagesController::class, 'index']);
     Route::post('/image', [ImagesController::class, 'store']);
