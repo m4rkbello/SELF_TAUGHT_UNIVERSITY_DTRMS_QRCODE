@@ -149,6 +149,7 @@ const EmployeeDashboard = (props) => {
 
     return (
         <div className="h-full max-h-full w-full max-w-full hero rounded-l-lg rounded-t-lg rounded-r-lg rounded-b-lg">
+        
             <ToastContainer />
             <dialog id="removeEmployee" className="modal">
                 <div className="modal-box">
@@ -508,10 +509,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-
-
 const MemoizedEmployeeDashboard = memo(EmployeeDashboard);
-
 export default connect(mapStateToProps, mapDispatchToProps)(MemoizedEmployeeDashboard);
 
 
