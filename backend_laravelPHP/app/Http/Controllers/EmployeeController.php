@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Department;
+use App\Models\AccessType;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -39,26 +40,62 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         try {
+            $accessType = AccessType::find(2);
+            $accessTypeId = $accessType ? $accessType->id : null;
             // Validate the request data
             $data = $request->validate([
-                'employee_fullname' => 'required|string',
-                'employee_email' => 'required|string|unique:employees,employee_email',
-                'employee_contact_no' => 'required|string|max:11',
-                'employee_position' => 'required|string',
-                'employee_role' => 'required|string',
-                'employee_department_id' => 'required|integer',
-                'employee_status_id' => 'required|integer',
+                'employee_firstname' => 'required|string',
+                'employee_middlename' => 'nullable|string',
+                'employee_lastname' => 'required|string',
+                'employee_extensionname' => 'nullable|string',
+                'employee_username' => 'nullable|string|unique:employees,employee_username',
+                'employee_email' => 'required|string|email|unique:employees,employee_email',
+                'employee_password' => 'required|string|min:8',
+                'employee_contact_no' => 'required|string|max:11|unique:employees,employee_contact_no',
+                'employee_barangay' => 'nullable|string',
+                'employee_municipality' => 'nullable|string',
+                'employee_province' => 'nullable|string',
+                'employee_region' => 'nullable|string',
+                'employee_birthdate' => 'nullable|date',
+                'employee_civil_status_id' => 'nullable|integer',
+                'employee_position' => 'nullable|string',
+                'employee_role' => 'nullable|string',
+                'employee_department_id' => 'nullable|integer',
+                'employee_status_id' => 'nullable|integer',
+                'employee_image' => 'nullable|string',
+                'employee_qrcode' => 'nullable|string',
+                'employee_sss_no' => 'nullable|string|max:255',
+                'employee_pagibig_no' => 'nullable|string|max:255',
+                'employee_philhealth_no' => 'nullable|string|max:255',
+                'employee_tin_no' => 'nullable|string|max:255',
             ]);
 
             // Create the employee record
             $employee = Employee::create([
-                'employee_fullname' => $data['employee_fullname'],
+                'employee_firstname' => $data['employee_firstname'],
+                'employee_middlename' => $data['employee_middlename'] ?? null,
+                'employee_lastname' => $data['employee_lastname'],
+                'employee_extensionname' => $data['employee_extensionname'] ?? null,
+                'employee_username' => $data['employee_username'] ?? null,
                 'employee_email' => $data['employee_email'],
+                'employee_password' => bcrypt($data['employee_password']),
                 'employee_contact_no' => $data['employee_contact_no'],
-                'employee_position' => $data['employee_position'],
-                'employee_role' => $data['employee_role'],
-                'employee_department_id' => $data['employee_department_id'],
-                'employee_status_id' => $data['employee_status_id'],
+                'employee_barangay' => $data['employee_barangay'] ?? null,
+                'employee_municipality' => $data['employee_municipality'] ?? null,
+                'employee_province' => $data['employee_province'] ?? null,
+                'employee_region' => $data['employee_region'] ?? null,
+                'employee_birthdate' => $data['employee_birthdate'] ?? null,
+                'employee_civil_status_id' => $data['employee_civil_status_id'],
+                'employee_position' => $data['employee_position'] ?? null,
+                'employee_role' => $data['employee_role'] ?? null,
+                'employee_department_id' => $data['employee_department_id'] ?? null,
+                'employee_status_id' => $data['employee_status_id'] ?? 1,
+                'employee_image' => $data['employee_image'] ?? null,
+                'employee_sss_no' => $data['employee_sss_no'] ?? null,
+                'employee_pagibig_no' => $data['employee_pagibig_no'] ?? null,
+                'employee_philhealth_no' => $data['employee_philhealth_no'] ?? null,
+                'employee_tin_no' => $data['employee_tin_no'] ?? null,
+                'access_type_id' => $accessTypeId,
             ]);
 
             // Generate QR code content (using employee email)
